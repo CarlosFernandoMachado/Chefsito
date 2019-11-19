@@ -2,11 +2,56 @@
 
 #main-title{
     font-size: 8vmin;
-    margin-top: 10px;
+    margin-top: 5px;
     font-weight: 700;
     text-transform: capitalize;
-    text-align: left;
+    text-align:left ;
   }
+
+  .image_section img{
+    display: block;
+}
+
+@media (max-width:640px) {
+    img#optionalstuff {
+      display: none;
+      flex: auto;
+    }
+  }
+
+#inputs{
+    width: 50vw;
+    border: 2px solid;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+
+#button {
+    width: 50%;
+    background-color: rgb(54, 201, 59); /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+  }
+
+#divider{
+    width:2px;
+    height:auto;
+    display:inline-block;
+    padding: 1em;
+    margin: 0;
+}
 
   /*
   #new-proj-graphic > #graphic{
@@ -37,19 +82,6 @@
     font-weight: 500;
 }
 
-/*
-#bt-addProject {
-    width: 40%;
-    margin: 5vmin;
-    height: 7vmin;
-    background: black;
-    color: white;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 2px;
-    border-radius: 10px;
-}*/
-
 
 
 #reserve-div {
@@ -58,7 +90,13 @@
     
 }
 
-/*superuserform*/
+#date-div{
+    flex-direction: row;
+    justify-content: space-between;
+    align-content:center;
+}
+
+
 #reserve-form  {
     text-align: left;
     display: flex;
