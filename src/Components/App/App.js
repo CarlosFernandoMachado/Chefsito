@@ -41,7 +41,6 @@ class App extends Component {
 
           <Route exact path="/reserva" component={Reserva}></Route>
           <Route exact path="/ratings" component={Ratings}></Route>
-          <Route exact path="/conocenos" component={Conocenos}></Route>
           <Route exact path="/" component={Home}></Route>
         </Router>
         <div className="container">
