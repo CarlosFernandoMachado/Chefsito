@@ -24,7 +24,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 //import PropTypes from 'prop-types';
-import resImage from './reservar.png';
+import resImage from './cooking.jpg';
 
 
 /*
@@ -126,10 +126,11 @@ class Reserva extends Component {
 
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
 
-              <div id = "date-div">
+              <div id="date-div">
+
                 <KeyboardDatePicker
                   margin="normal"
-                  id="date-picker-dialog"
+                  //id="date-picker-dialog"
                   label="Fecha"
                   format="dd/MM/yyyy"
                   value={this.state.selectedDate}
@@ -138,10 +139,10 @@ class Reserva extends Component {
                     'aria-label': 'change date',
                   }}
                 />
-
+                <br/>
                 <KeyboardTimePicker
                   margin="normal"
-                  id="time-picker"
+                  //id="time-picker"
                   label="Hora"
                   value={this.state.selectedDate}
                   onChange={this.handleDateChange}
@@ -156,32 +157,28 @@ class Reserva extends Component {
 
             <FormControl style={{ width: '75%' }}>
 
-            <InputLabel id="select-option">Seleccionar</InputLabel>
-            <Select
+              <InputLabel id="select-option">Seleccionar Chef</InputLabel>
+              <Select
 
-              //labelId="select-label"
-              //id="demo-simple-select"
-              value={this.state.chef}
-              //onChange={this.handleChange}
-              onChange={this.handleChange('chef')}
-            >
-              <MenuItem value={'Jane Doe'}>Jane Doe</MenuItem>
-              <MenuItem value={'John Doe'}>John Doe</MenuItem>
-              <MenuItem value={'Juan Pérez'}>Juan Pérez</MenuItem>
-              <MenuItem value={'Maria Pérez'}>Juan Pérez</MenuItem>
-            </Select>
-          </FormControl>
-          <div id = "divider" />
-          <Button id = "button" onClick={this.onClickBtn} name="OK" label="Submit" type="submit" >OK</Button>
-          <div id = "divider" />
- 
+                //labelId="select-label"
+                //id="demo-simple-select"
+                value={this.state.chef}
+                //onChange={this.handleChange}
+                onChange={this.handleChange('chef')}
+              >
+                <MenuItem value={'Jane Doe'}>Jane Doe</MenuItem>
+                <MenuItem value={'John Doe'}>John Doe</MenuItem>
+                <MenuItem value={'Juan Pérez'}>Juan Pérez</MenuItem>
+                <MenuItem value={'Maria Pérez'}>Juan Pérez</MenuItem>
+              </Select>
+            </FormControl>
+            <div id="divider" />
+            <Button id="button" onClick={this.onClickBtn} name="OK" label="Submit" type="submit" >OK</Button>
+            <div id="divider" />
+
           </div>
 
 
-
-
-
-          
           {/*
       <Grid container direction="column" alignItems="center">
       <Grid item xs={12}>
@@ -231,16 +228,14 @@ class Reserva extends Component {
       
       */}
 
-          
+
         </form>
 
         <div >
-          <img style={{ width: '100%', height: '100%', paddingTop: '6%' }} resizeMode='contain' id="optionalstuff" src={resImage}></img>
+          <img style={{ width: '90%', height: '100%', paddingTop: '6%' }} resizeMode='contain' id="optionalstuff" src={resImage}></img>
         </div>
       </div>
     );
   }
 }
-
-
 export default Reserva;

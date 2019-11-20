@@ -1,4 +1,6 @@
-
+* {
+    font-family: sans-serif;
+}
 
 #main-title{
     font-size: 8vmin;
@@ -53,35 +55,6 @@
     margin: 0;
 }
 
-  /*
-  #new-proj-graphic > #graphic{
-      height: 90vh;
-      width: 40vw;
-      background: linear-gradient(to right, yellow, green);
-  }
-  */
-
-  #new-proj-graphic {
-    height: 300vh;
-    width: 45vw;
-  }
-
-  #new-proj-graphic > #graphic {
-    height:300vh;
-    width: 45vw;
-    object-fit: cover;
-  }
-
-  #new-proj-inputs {
-      width: 60vw;
-  }
-
-#all-inputs > div {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 500;
-}
-
 
 
 #reserve-div {
@@ -90,12 +63,40 @@
     
 }
 
+/*
+.MuiFormControl-marginNormal{
+    width: 40%;
+    margin-left: 5px;
+    align-content: center;
+    float: left;
+}*/
+
+
 #date-div{
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-content:center;
+    align-content: center;
+    --padding-top: 2vh;
+    margin: 0
+}
+/*
+#date-picker-dialog{
+    position: relative;
+    left: -27%;
+    width:60%;
+    float: left;
+
 }
 
+#time-picker{
+    position: relative;
+    left: -27%;
+    width: 60%;
+    margin-left: 2vw;
+    float: left;
+}
+*/
 
 #reserve-form  {
     text-align: left;
@@ -123,17 +124,6 @@
 }
 
 
-#img-pro {
-    margin: auto;
-    align-self: center;
-    border: none;
-}
-
-#icon-close {
-    position: absolute;
-    top: 1px;
-    right: 1px;
-}
 
 #item {
     border: 1px solid rgb(126, 126, 126);
