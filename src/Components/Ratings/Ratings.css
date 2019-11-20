@@ -1,0 +1,35 @@
+.Chef1{
+    height: 150px;
+    background-image: url("./Imagenes/Chef1.jpg");
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.Chef2{
+    height: 150px;
+    background-image: url("./Imagenes/Chef2.jpg");
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.Chef3{
+    height: 150px;
+    background-image: url("./Imagenes/Chef3.jpg");
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.RatingsDiv{
+    margin-top: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}

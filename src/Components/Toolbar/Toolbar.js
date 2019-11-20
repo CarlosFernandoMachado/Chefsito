@@ -26,12 +26,6 @@ const toolbar = props => (
               <Button> Ratings </Button>
             </Link>
           </li>
-
-          <li>
-            <Link to="/conocenos">
-              <Button> Conocenos </Button>
-            </Link>
-          </li>
           
         </ul>
       </div>
