@@ -6,8 +6,8 @@ import SideDrawer from '../SideDrawer/SideDrawer';
 import Backdrop from '../Backdrop/Backdrop';
 import Reserva from '../Reserva/Reserva';
 import Ratings from '../Ratings/Ratings';
-import Conocenos from '../Conocenos/Conocenos';
 import Home from '../Home/Home';
+import Pedidos from '../Pedidos/Pedidos';
 
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
     sideDrawerOpen: false
   };
 
-  rawerToggleClickHandler = () => {
+  drawerToggleClickHandler = () => {
     this.setState((prevState) => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
@@ -42,6 +42,7 @@ class App extends Component {
           <Route exact path="/reserva" component={Reserva}></Route>
           <Route exact path="/ratings" component={Ratings}></Route>
           <Route exact path="/" component={Home}></Route>
+          <Route exact path="/pedidos" component={Pedidos}></Route>
         </Router>
         <div className="container">
         </div>
