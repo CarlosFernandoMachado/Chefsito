@@ -242,7 +242,7 @@ class Reserva extends Component {
 
             </MuiPickersUtilsProvider>
 
-            <FormControl style={{ width: '75%' }}>
+            {this.state.selectedDate !== null ? <FormControl style={{ width: '75%' }}>
 
               <InputLabel id="select-option">Seleccionar Chef</InputLabel>
               <Select
@@ -258,7 +258,8 @@ class Reserva extends Component {
                 <MenuItem value={'Juan Pérez'}>Juan Pérez</MenuItem>
                 <MenuItem value={'Maria Velásquez'}>Maria Velásquez</MenuItem>
               </Select>
-            </FormControl>
+            </FormControl> : <div></div>}
+            
             <div id="divider" />
             <Button id="button" onClick=  {this.validInfo() ? this.handleClickOpen : this.handleClickOpen2} name="OK" label="Submit" type="submit" >OK</Button>
             <div id="divider" />
