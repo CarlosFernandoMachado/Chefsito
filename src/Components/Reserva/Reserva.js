@@ -24,7 +24,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 //import PropTypes from 'prop-types';
-import resImage from './cooking.jpg';
+import resImage from './chefcutting.png';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
 
 
 /*
@@ -45,24 +51,36 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 class Reserva extends Component {
 
   constructor() {
     super();
     this.state = {
       nombre: null,
-      apellido: null,
+      email: null,
       departamento: null,
       direccion: null,
       telefono: null,
       chef: '',
       selectedDate: null,
+      open: false,
+      open2: false,
+      setOpen: false,
 
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onClickBtn = this.onClickBtn.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleClickOpen = this.handleClickOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleClickOpen2 = this.handleClickOpen2.bind(this);
+    this.handleClose2 = this.handleClose2.bind(this);
+    this.validInfo = this.validInfo.bind(this);
     /*this.handleClick = this.handleClick.bind(this);
     this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
@@ -73,6 +91,22 @@ class Reserva extends Component {
     this.setState({ [name]: event.target.value });
     console.log(event.target.value);
   }
+
+  handleClickOpen = () => {
+    this.setState({ setOpen: true, open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ setOpen: false, open: false });
+  };
+
+  handleClickOpen2 = () => {
+    this.setState({ setOpen: true, open2: true });
+  };
+
+  handleClose2 = () => {
+    this.setState({ setOpen: false, open2: false });
+  };
 
   handleDateChange = date => {
     this.setState({ selectedDate: date });
@@ -87,6 +121,16 @@ class Reserva extends Component {
   onClickBtn() {
     console.log(this.state);
 
+  }
+
+  validInfo() {
+    return(this.state.nombre !== null &&
+      this.state.email !== null &&
+      this.state.departamento !== null &&
+      this.state.direccion !== null &&
+      this.state.telefono !== null &&
+      this.state.chef !== '' &&
+      this.state.selectedDate !== null)
   }
   /*
     handleClick = () => {
@@ -114,12 +158,55 @@ class Reserva extends Component {
 
     return (
       <div id="reserve-div">
+        <Dialog
+          open={this.state.open}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle id="alert-dialog-slide-title">{"Gracias por utilizar Chefsito"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              Tu reservación se ha realizado con éxito.
+    </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button href="/" onClick={this.handleClose} color="primary">
+              OK
+    </Button>
+          </DialogActions>
+        </Dialog>
+
+        <Dialog
+          open={this.state.open2}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={this.handleClose2}
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle id="alert-dialog-slide-title">{"Debes completar toda la información requerida."}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              Termina de llenar los campos requeridos.
+</DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose2} color="primary">
+              OK
+</Button>
+          </DialogActions>
+        </Dialog>
+
+
 
         <form id="reserve-form" onSubmit={this.handleSubmit}>
           <h1 id="main-title">Reservar</h1>
           <div id="inputs">
             <TextField style={{ width: '75%' }} name="name" label="Nombre" onChange={this.handleChange('nombre')} />
-            <TextField style={{ width: '75%' }} name="surname" label="Apellido" onChange={this.handleChange('apellido')} />
+            <TextField style={{ width: '75%' }} name="email" label="Correo" onChange={this.handleChange('email')} />
             <TextField style={{ width: '75%' }} name="region" label="Departamento" onChange={this.handleChange('departamento')} />
             <TextField style={{ width: '75%' }} name="address" label="Dirección" onChange={this.handleChange('direccion')} />
             <TextField style={{ width: '75%' }} name="phone" label="Número de teléfono" onChange={this.handleChange('telefono')} />
@@ -139,7 +226,7 @@ class Reserva extends Component {
                     'aria-label': 'change date',
                   }}
                 />
-                <br/>
+                <br />
                 <KeyboardTimePicker
                   margin="normal"
                   //id="time-picker"
@@ -166,14 +253,14 @@ class Reserva extends Component {
                 //onChange={this.handleChange}
                 onChange={this.handleChange('chef')}
               >
-                <MenuItem value={'Jane Doe'}>Jane Doe</MenuItem>
-                <MenuItem value={'John Doe'}>John Doe</MenuItem>
+                <MenuItem value={'Carlos Martinez'}>Carlos Martínez</MenuItem>
+                <MenuItem value={'Andrea Rodriguez'}>Andrea Rodríguez</MenuItem>
                 <MenuItem value={'Juan Pérez'}>Juan Pérez</MenuItem>
-                <MenuItem value={'Maria Pérez'}>Juan Pérez</MenuItem>
+                <MenuItem value={'Maria Velásquez'}>Maria Velásquez</MenuItem>
               </Select>
             </FormControl>
             <div id="divider" />
-            <Button id="button" onClick={this.onClickBtn} name="OK" label="Submit" type="submit" >OK</Button>
+            <Button id="button" onClick=  {this.validInfo() ? this.handleClickOpen : this.handleClickOpen2} name="OK" label="Submit" type="submit" >OK</Button>
             <div id="divider" />
 
           </div>
@@ -232,7 +319,7 @@ class Reserva extends Component {
         </form>
 
         <div >
-          <img style={{ width: '90%', height: '100%', paddingTop: '6%' }} resizeMode='contain' id="optionalstuff" src={resImage}></img>
+          <img style={{ width: '100%', height: '100%', paddingTop: '6%' }} resizeMode='contain' id="optionalstuff" src={resImage}></img>
         </div>
       </div>
     );
